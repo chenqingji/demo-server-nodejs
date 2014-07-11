@@ -1,5 +1,7 @@
 var qs = require('querystring');
 
+//该函数用于模拟开发者自己服务器的注册功能。注册后使用的是gravatar的头像
+//输入参数email，username，password
 function process(req,res,db){
     var finish = false;
     var body = '';

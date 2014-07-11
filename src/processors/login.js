@@ -1,5 +1,6 @@
 var qs = require('querystring');
 
+//输入参数email，password，deviceid。该函数用于登录服务器获取授权
 function process(req,res,db){
     var finish = false;
     var body = '';
@@ -18,6 +19,7 @@ function process(req,res,db){
     });
 }
 
+//在数据库鉴权，这一步是模拟开发者自己的鉴权行为。通过数据库获取的唯一id和名称注册。
 function loginUser(email,password,deviceId,db,res,req){
     db.get("select * from user where email = ?",email,function(err,row){
         if (err != null){
@@ -44,6 +46,8 @@ var conf = require("../conf.json");
 
 var http = require('http');
 
+
+//该函数是开发者真正需要在开发中实现的功能。该函数从rong.io换取相应的token用于登录
 function getToken(userId,userName,userPortrait,email,deviceId,res,req) {
 	// Build the post string from an object
 	var post_data = qs.stringify({
