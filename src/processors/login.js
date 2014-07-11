@@ -49,7 +49,7 @@ function getToken(userId,userName,userPortrait,email,deviceId,res,req) {
 	var post_data = qs.stringify({
 		'userId' : userId,
 		'name': userName,
-		'portraitURI': userPortrait,
+		'portraitUri': userPortrait,
 		'deviceId': deviceId
 	});
 
