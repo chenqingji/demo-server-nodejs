@@ -91,6 +91,7 @@ function getToken(userId,userName,userPortrait,email,deviceId,res,req) {
 	});
 
 	post_req.on('error', function(e) {
+        req.finish = true;
 		console.log('problem with request: ' + e.message);
 		res.writeHead(500,{'Content-Type': 'text/plain','Content-Length': e.message.length});
 		res.end(e.message);
