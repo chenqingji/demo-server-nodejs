@@ -67,7 +67,7 @@ function getToken(userId,userName,userPortrait,email,deviceId,res,req) {
 			'appKey': conf.appKey,
 			'appSecret': conf.appSecret,
 			'Content-Type': 'application/x-www-form-urlencoded',
-			'Content-Length': post_data.length
+			'Content-Length': Buffer.byteLength(post_data,'utf8')
 		}
 	};
 
