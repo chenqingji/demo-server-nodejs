@@ -1,4 +1,4 @@
 demo-server-nodejs
 ===================
 
-Node.js implementation of auth service for Rong Cloud.
+Node.js implementation of demo server for Rong Cloud.
