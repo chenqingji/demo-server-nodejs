@@ -9,7 +9,7 @@ function process(req,res,db){
     });
     req.on('end', function () {
         var postBody = qs.parse(body);
-        if (postBody.email == null || postBody.password == null || postBody.deviceid == null){
+        if (postBody.email == null || postBody.password == null){
             res.writeHead(403,{'Content-Type': 'text/plain','Content-Length': "Missing parameter.".length});
             res.end("Missing parameter.");
             console.log("Missing parameter.");
