@@ -53,8 +53,7 @@ function getToken(userId,userName,userPortrait,email,deviceId,res,req) {
 	var post_data = qs.stringify({
 		'userId' : userId,
 		'name': userName,
-		'portraitUri': userPortrait,
-		'deviceId': deviceId
+		'portraitUri': userPortrait
 	});
 
 	// An object of options to indicate where to post to
