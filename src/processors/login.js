@@ -60,7 +60,7 @@ function getToken(userId,userName,userPortrait,email,res,req) {
 	var post_options = {
 		host: conf.apiHost,
 		port: conf.apiPort,
-		path: '/reg.json',
+		path: '/getToken.json',
 		method: 'POST',
 		headers: {
 			'appKey': conf.appKey,
