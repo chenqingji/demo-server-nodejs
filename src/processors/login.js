@@ -8,6 +8,7 @@ function process(req,res,db){
         body += data;
     });
     req.on('end', function () {
+    	console.log('Processing login request.');
         var postBody = qs.parse(body);
         if (postBody.email == null || postBody.password == null){
             res.writeHead(403,{'Content-Type': 'text/plain','Content-Length': "Missing parameter.".length});
