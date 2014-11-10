@@ -22,7 +22,7 @@ function process(req,res,db){
 }
 
 function getProfile(id,db,res){
-    db.get("select id,username,portrait from user where id = ?",id,function(err,row){
+    db.query("select id,username,portrait from user where id = ?",id,function(err,row){
         if (err != null){
             res.writeHead(500,{'Content-Type': 'text/plain','Content-Length': "Server error".length});
             res.end("Server error");
@@ -32,7 +32,7 @@ function getProfile(id,db,res){
             res.end("Server error");
             console.log(row);
         }else{
-            var responseString = JSON.stringify(row);
+            var responseString = JSON.stringify(row[0]);
             res.writeHead(200,{'Content-Type': 'text/plain','Content-Length': Buffer.byteLength(responseString,'utf8')});
             res.end(responseString);
         }
