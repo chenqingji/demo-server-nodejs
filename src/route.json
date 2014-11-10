@@ -14,5 +14,9 @@
     "profile":{
         "path":"/profile",
         "method":"POST"
+    },
+    "test":{
+        "path":"/test",
+        "method":"POST"
     }
 }
