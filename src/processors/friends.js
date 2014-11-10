@@ -1,6 +1,6 @@
 var qs = require('querystring');
 
-//该方法需要输入参数cookie(来自login的返回值)，返回好友列表。这个方法是用于模拟开发者自己服务器的好友列表功能
+//璇ユ柟娉曢渶瑕佽緭鍏ュ弬鏁癱ookie(鏉ヨ嚜login鐨勮繑鍥炲€?锛岃繑鍥炲ソ鍙嬪垪琛ㄣ€傝繖涓柟娉曟槸鐢ㄤ簬妯℃嫙寮€鍙戣€呰嚜宸辨湇鍔″櫒鐨勫ソ鍙嬪垪琛ㄥ姛鑳?
 function process(req,res,db){
     var finish = false;
     var body = '';
@@ -10,7 +10,7 @@ function process(req,res,db){
     req.on('end', function () {
         req.finish = true;
         var postBody = qs.parse(body);
-        //使用cookie鉴权
+        //浣跨敤cookie閴存潈
         if (postBody.cookie == null){
             res.writeHead(403,{'Content-Type': 'text/plain','Content-Length': "Missing parameter.".length});
             res.end("Missing parameter.");
@@ -21,10 +21,10 @@ function process(req,res,db){
     });
 }
 
-//从数据库读取好友列表。原本将自己去掉了，为了方便测试，将自己也选出了
+//浠庢暟鎹簱璇诲彇濂藉弸鍒楄〃銆傚師鏈皢鑷繁鍘绘帀浜嗭紝涓轰簡鏂逛究娴嬭瘯锛屽皢鑷繁涔熼€夊嚭浜?
 function getFriends(email,db,res){
     //db.all
-    client.query("select id,username,portrait from user"/* where email <> ?",email*/,function(err,rows,fields){
+    db.query("select id,username,portrait from user"/* where email <> ?",email*/,function(err,rows,fields){
         if (err != null){
             res.writeHead(500,{'Content-Type': 'text/plain','Content-Length': "Server error".length});
             res.end("Server error");
