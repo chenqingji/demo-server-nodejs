@@ -9,7 +9,9 @@
         "url":"https://raw.githubusercontent.com/rongcloud/demo-server-nodejs/master/LICENSE"
     }],
     "dependencies": {
-        "sqlite3": "2.2.3"
+        "sqlite3": "2.2.3",
+        "mysql":"2.0.0-alpha9",
+        "node-mysql":""
     },
     "engines": {
         "node": ">=0.10.0"
