@@ -5,5 +5,10 @@
     "apiPort":"80",
     "sqliteMem":false,
     "sqlitedb":"db.db",
-    "dbcreatsql":"CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,email VARCHAR( 64 )  NOT NULL UNIQUE,username VARCHAR( 32 )  NOT NULL,portrait VARCHAR( 128 ) NOT NULL,passwd VARCHAR( 32 ) NOT NULL,createdTime DATETIME NOT NULL DEFAULT ( datetime( 'now', 'localtime' )  ))"
+    "dbcreatsql":"CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,email VARCHAR( 64 )  NOT NULL UNIQUE,username VARCHAR( 32 )  NOT NULL,portrait VARCHAR( 128 ) NOT NULL,passwd VARCHAR( 32 ) NOT NULL,createdTime DATETIME NOT NULL DEFAULT ( datetime( 'now', 'localtime' )  ))",
+    "mysqlHost": 'localhost',
+    "mysqlPort": 3306,
+    "mysqlUser" : 'root',  
+    "mysqlPassword" : 'root',
+    "mysqlDatabase" ; 'demo-server'
 }
