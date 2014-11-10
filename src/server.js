@@ -35,14 +35,25 @@ db.serialize(function() {
 });
 
 //添加mysql数据连接
-var Client = require('mysql').Client;  
+ 
+var mysql = require('mysql');
+var client = mysql.createConnection({
+    host:conf.mysqlHost,
+    user:conf.mysqlUser,
+    database:conf.mysqlDatabase,
+    password:conf.mysqlPassword,
+    port:conf.mysqlPort
+});
+client.connect();
+/*
+var Client = require('mysql').Client; 
 var client = new Client();   
 client.host = conf.mysqlHost;  
 client.port = conf.mysqlPort;  
 client.user = conf.mysqlUser;   
 client.password = conf.mysqlPassword;   
 client.database= conf.mysqlDatabase; 
-client.connect();
+client.connect();*/
 
 //创建服务器
 http.createServer(function (req, res) { 
