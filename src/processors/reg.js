@@ -24,14 +24,17 @@ function process(req,res,db){
 }
 
 function regUser(email,username,userportrait,password,db,res){
-    db.get("select * from user where email = ?",email,function(err,row){
+    db.query("select * from user where email = ?",email,function(err,row){
+            console.log(row);
         if (err != null){
             res.writeHead(500,{'Content-Type': 'text/plain','Content-Length': "Server error".length});
             res.end("Server error");
             console.log(err);
-        }else if (typeof row == "undefined"){
-            db.run("insert into user (email,username,portrait,passwd) values (?,?,?,?)",
-                email,username,userportrait,password);
+        }else if (typeof row == "undefined"||row.length==0){
+            db.query("insert into user (email,username,portrait,passwd) values (?,?,?,?)",
+                [email,username,userportrait,password],function(err,row,field){
+                console.log(err);
+                });
             var obj = new Object();
             obj.code = 200;
             var responseString = JSON.stringify(obj);
