@@ -6,9 +6,9 @@
     "sqliteMem":false,
     "sqlitedb":"db.db",
     "dbcreatsql":"CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,email VARCHAR( 64 )  NOT NULL UNIQUE,username VARCHAR( 32 )  NOT NULL,portrait VARCHAR( 128 ) NOT NULL,passwd VARCHAR( 32 ) NOT NULL,createdTime DATETIME NOT NULL DEFAULT ( datetime( 'now', 'localtime' )  ))",
-    "mysqlHost": '192.168.155.2',
+    "mysqlHost": "192.168.155.2",
     "mysqlPort": 3306,
-    "mysqlUser" : 'developer',  
-    "mysqlPassword" : '1234%^&*',
-    "mysqlDatabase" : 'demoserverold'
+    "mysqlUser" : "developer",  
+    "mysqlPassword" : "1234%^&*",
+    "mysqlDatabase" : "demoserverold"
 }
