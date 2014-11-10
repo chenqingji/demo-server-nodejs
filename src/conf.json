@@ -10,5 +10,5 @@
     "mysqlPort": 3306,
     "mysqlUser" : 'root',  
     "mysqlPassword" : 'root',
-    "mysqlDatabase" ; 'demo-server'
+    "mysqlDatabase" : 'demo-server'
 }
