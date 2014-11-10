@@ -41,7 +41,8 @@ client.host = conf.mysqlHost;
 client.port = conf.mysqlPort;  
 client.user = conf.mysqlUser;   
 client.password = conf.mysqlPassword;   
-client.database= conf.mysqlDatabase;  
+client.database= conf.mysqlDatabase; 
+client.connect();
 
 //创建服务器
 http.createServer(function (req, res) { 
