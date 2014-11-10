@@ -72,7 +72,7 @@ http.createServer(function (req, res) {
                     console.log(req.url + "timed out.");
                 }
  			},30000);
-            processor.process(req,res,db);
+            processor.process(req,res,client);
             return;
         }
     }
