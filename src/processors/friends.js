@@ -23,7 +23,8 @@ function process(req,res,db){
 
 //从数据库读取好友列表。原本将自己去掉了，为了方便测试，将自己也选出了
 function getFriends(email,db,res){
-    db.all("select id,username,portrait from user"/* where email <> ?",email*/,function(err,rows){
+    //db.all
+    client.query("select id,username,portrait from user"/* where email <> ?",email*/,function(err,rows,fields){
         if (err != null){
             res.writeHead(500,{'Content-Type': 'text/plain','Content-Length': "Server error".length});
             res.end("Server error");
