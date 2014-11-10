@@ -22,7 +22,8 @@ function process(req,res,db){
 
 //在数据库鉴权，这一步是模拟开发者自己的鉴权行为。通过数据库获取的唯一id和名称注册。
 function loginUser(email,password,db,res,req){
-    db.get("select * from user where email = ?",email,function(err,row){
+   // db.get
+   client.query("select * from user where email = ?",email,function(err,row){
         if (err != null){
             res.writeHead(500,{'Content-Type': 'text/plain','Content-Length': "Server error".length});
             res.end("Server error");
