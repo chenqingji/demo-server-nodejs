@@ -34,6 +34,15 @@ db.serialize(function() {
     db.run(conf.dbcreatsql);
 });
 
+//添加mysql数据连接
+var Client = require('mysql').Client;  
+var client = new Client();   
+client.host = conf.mysqlHost;  
+client.port = conf.mysqlPort;  
+client.user = conf.mysqlUser;   
+client.password = conf.mysqlPassword;   
+client.database= conf.mysqlDatabase;  
+
 //创建服务器
 http.createServer(function (req, res) { 
  	req.finish = false;
