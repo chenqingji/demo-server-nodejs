@@ -34,15 +34,21 @@ function loginUser(email,password,db,res,req){
             console.log(email + " is not registered.");
         }else{
             var row = null;
-            if(rows.length>0) {
+            if(rows.length > 0) {
                 row = rows[0];
             }
-            if (row!=null && password == row.passwd){
-                getToken(row.id,row.username,row.portrait,row.email,res,req);
+            if (row == null){
+            	res.writeHead(403,{'Content-Type': 'text/plain','Content-Length': "User is not registered.".length});
+            	res.end("User is not registered.");
+            	console.log(email + " is not registered.");
             } else {
-                res.writeHead(401,{'Content-Type': 'text/plain','Content-Length': "Password error!".length});
-                res.end("Password error!");
-                console.log(email + " passwd error!");
+            	if (password == row.passwd){
+                	getToken(row.id,row.username,row.portrait,row.email,res,req);
+            	} else {
+                	res.writeHead(401,{'Content-Type': 'text/plain','Content-Length': "Password error!".length});
+                	res.end("Password error!");
+                	console.log(email + " passwd error!");
+            	}
             }
         }
     })
