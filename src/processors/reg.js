@@ -11,7 +11,7 @@ function process(req,res,db){
     req.on('end', function () {
         req.finish = true;
         var postBody = qs.parse(body);
-        if (postBody.email == null || postBody.username == null || postBody.password == null){
+        if (postBody.email == null || postBody.email.indexOf("@") < 0 || postBody.username == null || postBody.password == null){
             res.writeHead(403,{'Content-Type': 'text/plain','Content-Length': "Missing parameter.".length});
             res.end("Missing parameter.");
             console.log("Missing parameter.");
